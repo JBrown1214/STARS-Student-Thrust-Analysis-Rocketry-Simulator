@@ -1,4 +1,3 @@
-
 class Motor:
     def __init__(self, mass, burn_time, impulse_total, p_exit, altitude):
         self.mass = mass
@@ -47,7 +46,25 @@ class Bell_Nozzle(Motor):
         self.thrust = (self.m_dot * self.v_exit) + ((self.p_exit - self.p_ambient)*self.exit_area)
 
 class Aerospike_Nozzle(Motor):
-    def __init__(self, mass, burn_time, impulse_total, p_exit_nozzle, altitude, p_exit_centerbody):
+    def __init__(self, mass, burn_time, impulse_total, p_exit_nozzle, altitude, p_exit_centerbody, p_base):
         super().__init__(mass, burn_time, impulse_total, p_exit_nozzle, altitude)()
         self.p_exit_centerbody = p_exit_centerbody
+        self.p_base = p_base
+        #self.thrust calculation
 
+nozzle_type = input('What type of nozzle will be tested? (bell/aerospike):')
+motor_class = input('What class of motor will be tested? (A/B/C/D/):')
+altitude = input('What altitude will this be tested at? (meters above sea level):')
+
+#calculate ambient pressure using altitude
+#calculate motor mass, burn time, impulse total, and p_exit from motor class and Estes info
+
+
+# if nozzle_type == 'bell' or 'Bell' or 'bell nozzle' or 'Bell nozzle':
+        #input exit_area and assign it as a variable
+        #create a bell nozzle subclass of the motor class (using all variables)
+        #return nozzle thrust estimate as well as other calculated rocket data
+# elif nozzle_type == 'aerospike' or 'Aerospike' or 'aerospike nozzle' or 'Aerospike nozzle':
+        #input p_exit_centerbody and p_base and assign them as variables
+        #create an Aerospike nozzle subclass of the motor class (using all variables)
+        #return nozzle thrust estimate as well as other calculated rocket data
